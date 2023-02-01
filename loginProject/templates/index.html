@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+
+{% block body %}
+<h1>Home Page:</h1>
+{% if user.is_authenticated %}
+<div>
+    <p>Hi, {{user_basic_info.username}}</p>
+    <p>Your email is, {{user_basic_info.email}}</p>
+    <p>Your Facebook Id: <a href="{{user_more_info.facebook_id}}">{{user_basic_info.username}}</a></p>
+    <p>Your Profile Pic:</p>
+    <img src="/media/{{user_more_info.profile_pic}}" alt="">
+</div>
+{% else %}
+<div>
+    <h1>Please Login First!!!</h1>
+</div>
+{% endif %}
+{% endblock body %}
